@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Header from '../components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
-import Album from './Album';
+import AlbumList from '../components/AlbumList';
 import Loading from './Loading';
 
 export default class Search extends Component {
@@ -41,7 +40,6 @@ export default class Search extends Component {
     if (loading) return <Loading />;
     return (
       <div data-testid="page-search">
-        <Header />
         <form>
           <label htmlFor="search">
             <input
@@ -55,13 +53,14 @@ export default class Search extends Component {
               type="button"
               disabled={ searchInput.length < MIN_CHARC_LENGHT }
               data-testid="search-artist-button"
+              onClick={ this.handleClick }
             >
-              Procurar
+              Pesquisar
             </button>
           </label>
         </form>
         {(albuns.length === 0) ? <h2>Nenhum álbum foi encontrado</h2>
-          : <Album albuns={ albuns } artists={ searchInput } /> }
+          : <AlbumList albuns={ albuns } artists={ searchInput } /> }
       </div>
     );
   }
