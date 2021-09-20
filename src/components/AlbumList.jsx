@@ -4,13 +4,13 @@ import AlbumCard from './AlbumCard';
 
 export default class Album extends Component {
   render() {
-    const { albuns, artists } = this.props;
+    const { albuns, artist } = this.props;
     return (
       <div>
         <p>
           Resultado de álbuns de:
           {' '}
-          { artists }
+          {artist}
         </p>
         {albuns.map((album) => (
           <AlbumCard key={ album.collectionId } album={ album } />
@@ -22,5 +22,5 @@ export default class Album extends Component {
 
 Album.propTypes = {
   albuns: PropTypes.arrayOf(PropTypes.object).isRequired,
-  artists: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
 };

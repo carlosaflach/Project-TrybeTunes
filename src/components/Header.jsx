@@ -39,11 +39,9 @@ export default class Header extends Component {
           </h3>
         </div>
         <nav>
-          <div>
-            <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
-            <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
-            <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
-          </div>
+          <Link to="/search" data-testid="link-to-search">Pesquisa</Link>
+          <Link to="/favorites" data-testid="link-to-favorites">Favoritas</Link>
+          <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
         </nav>
       </header>
     );

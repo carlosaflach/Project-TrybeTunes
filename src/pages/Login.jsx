@@ -23,15 +23,16 @@ class Login extends Component {
     });
   }
 
-  async handleClick() { // Setting an async funcion based on Écio Ferraz repository
+  handleClick() { // Setting an async funcion based on Écio Ferraz repository
     this.setState({
       loading: true,
     });
     const { inputLoginName } = this.state;
-    await createUser({ name: inputLoginName });
     this.setState({
       loading: false,
       loaded: true,
+    }, async () => {
+      await createUser({ name: inputLoginName });
     });
   }
 
