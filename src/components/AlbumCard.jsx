@@ -5,18 +5,17 @@ import PropTypes from 'prop-types';
 export default class AlbumCard extends Component {
   render() {
     const { album:
-    { collectionId, artworkUrl100, collectionName, artistName } } = this.props;
+    { collectionId, artworkUrl100, collectionName } } = this.props;
     return (
-      <Link
-        to={ `/album/${collectionId}` }
-        data-testid={ `link-to-album-${collectionId}` }
-      >
-        <img alt="Album Cover" src={ artworkUrl100 } />
-        <div>
+      <div>
+        <Link
+          to={ `/album/${collectionId}` }
+          data-testid={ `link-to-album-${collectionId}` }
+        >
           <h4>{ collectionName }</h4>
-          <h5>{ artistName }</h5>
-        </div>
-      </Link>
+          <img alt="Album Cover" src={ artworkUrl100 } />
+        </Link>
+      </div>
     );
   }
 }

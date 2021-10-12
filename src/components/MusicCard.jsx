@@ -1,55 +1,49 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
-import Loading from '../pages/Loading';
 
 class MusicCard extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    const { bookmarked } = props;
     this.state = {
-      loading: false,
-      checked: false,
+      checked: bookmarked,
     };
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  async handleClick() {
-    const { music } = this.props;
+  handleChange = ({ target }) => {
+    const { name } = target;
+    const { handleFavorites } = this.props;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
-      loading: true,
+      [name]: value,
     });
-    await addSong(music);
-    this.setState({
-      loading: false,
-      checked: true,
-    });
-  }
+    handleFavorites(target.checked, this.props);
+  };
 
   render() {
-    const { music: { trackName, trackId, previewUrl } } = this.props;
-    const { loading, checked } = this.state;
+    const { previewUrl, trackName, trackId } = this.props;
+    const { checked } = this.state;
 
     return (
-      (loading ? <Loading /> : (
-        <div>
-          <h4>{ trackName }</h4>
-          <audio data-testid="audio-component" src={ previewUrl } controls>
-            <track kind="captions" />
-            O seu navegador não suporta o elemento
-            <code>audio</code>
-          </audio>
-          <label htmlFor={ trackId }>
-            Favorita
-            <input
-              type="checkbox"
-              id={ trackId }
-              data-testid={ `checkbox-music-${trackId}` }
-              checked={ checked }
-              onChange={ this.handleClick }
-            />
-          </label>
-        </div>
-      ))
+      <div>
+        <p>{ trackName }</p>
+        <audio data-testid="audio-component" src={ previewUrl } controls>
+          <track kind="captions" />
+          O seu navegador não suporta o elemento
+          {' '}
+          <code>audio</code>
+          .
+        </audio>
+        <label htmlFor={ trackId } data-testid={ `checkbox-music-${trackId}` }>
+          <input
+            id={ trackId }
+            name="checked"
+            checked={ checked }
+            type="checkbox"
+            onChange={ this.handleChange }
+          />
+        </label>
+      </div>
     );
   }
 }
