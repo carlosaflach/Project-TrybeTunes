@@ -18,7 +18,7 @@ In this project I could apply the following skills:<br>
 * Use the `Redirect` component to redirect to a specific route
 * Create navigation links with the Link component
 
-### Applioed Tools 🛠️
+### Applied Tools 🛠️
 * React
 * React Router
 * React Testing Library
