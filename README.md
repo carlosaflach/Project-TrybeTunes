@@ -2,7 +2,7 @@
 
 The goal of this project was to develop a website that user can listen to music previews provided by iTunes API. User can serach by artist, choose between albuns and save a favorites playlist, that is saved in `localstorage`.
 
-The habilities that I used to do this applications was HTML, CSS, JavaScrip and React skills, specially `components lifecycle` and `react router features`.
+The habilities that I used to do this applications was HTML, CSS, JavaScript and React skills, specially `components lifecycle` and `react router features`.
 
 `Requirements:`
 
