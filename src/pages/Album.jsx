@@ -74,7 +74,6 @@ class Album extends React.Component {
   async fetchFavorites() {
     this.setState({ loading: true });
     const favoriteSongs = await getFavoriteSongs();
-    // Based on Rodolfo Pinheiro Solution, for loading when loading.
     this.setState({
       favoriteSongs,
       loading: false,
