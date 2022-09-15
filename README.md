@@ -54,4 +54,6 @@ npm i
 npm start
 ```
 
+> :heavy_exclamation_mark: CSS not implemented yet. :heavy_exclamation_mark:
+
 All [Trybe](https://www.betrybe.com/) projects use `linters`, `Git` and `GitHub`.
